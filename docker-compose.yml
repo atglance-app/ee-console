@@ -86,8 +86,6 @@ services:
       - composer_vendor:/app/vendor
 
   kong:
-    build:
-      context: ./kong
     image: atglance/ee-kong-app:0.1.0
     restart: unless-stopped
     environment:
@@ -98,8 +96,6 @@ services:
     ports:
       - "8002:8002"
       - "8001:8001"
-    volumes:
-      - ./kong:/kong/declarative
     depends_on:
       - api
 
